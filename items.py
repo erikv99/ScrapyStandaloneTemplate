@@ -1,6 +1,6 @@
 import scrapy
 
-class bookScrapingPracticeItem(scrapy.Item):
+class scrapyStandaloneTestItem(scrapy.Item):
 
     # define the fields for your item here
     title = scrapy.Field()

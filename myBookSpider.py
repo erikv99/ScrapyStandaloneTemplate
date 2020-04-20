@@ -1,5 +1,5 @@
 import scrapy
-from items import bookScrapingPracticeItem
+from items import scrapyStandaloneTestItem
 
 class bookSpider(scrapy.Spider):
 
@@ -8,6 +8,7 @@ class bookSpider(scrapy.Spider):
     custom_settings = {
         "FEED_URI" : "resultFile.csv",
         "FEED_FORMAT" : "csv",
+        "FEED_EXPORT_FIELDS" : ["title", "price"]
     }
     start_urls = [
         "http://books.toscrape.com/"
@@ -16,7 +17,7 @@ class bookSpider(scrapy.Spider):
     def parse(self, response):
 
         # Getting an instance of our item class
-        item = bookScrapingPracticeItem()
+        item = scrapyStandaloneTestItem()
 
         # Getting all the article's with product pod class
         articles = response.css("article.product_pod")

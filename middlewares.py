@@ -7,8 +7,7 @@
 
 from scrapy import signals
 
-
-class BookscrapingpracticeSpiderMiddleware(object):
+class scrapyStandaloneTestMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +55,7 @@ class BookscrapingpracticeSpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class BookscrapingpracticeDownloaderMiddleware(object):
+class scrapyStandaloneTestDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
