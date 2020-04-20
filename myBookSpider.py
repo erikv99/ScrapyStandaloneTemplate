@@ -1,12 +1,5 @@
 import scrapy
-from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
-
-class bookScrapingPracticeItem(scrapy.Item):
-
-    # define the fields for your item here
-    title = scrapy.Field()
-    price = scrapy.Field()
+from items import bookScrapingPracticeItem
 
 class bookSpider(scrapy.Spider):
 
@@ -25,7 +18,7 @@ class bookSpider(scrapy.Spider):
         # Getting an instance of our item class
         item = bookScrapingPracticeItem()
 
-        # Getting all the article's with prouduct pod class
+        # Getting all the article's with product pod class
         articles = response.css("article.product_pod")
 
         # Looping thru all the article elements we got earlier
@@ -39,14 +32,3 @@ class bookSpider(scrapy.Spider):
             item["title"] = title
             item["price"] = price
             yield item
-
-def runSpider():
-
-    # Running scraper
-    process = CrawlerProcess(get_project_settings())
-    process.crawl(bookSpider)
-    process.start()
-
-if (__name__ == "__main__"):
-
-    runSpider()
